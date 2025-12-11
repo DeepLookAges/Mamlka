@@ -8,7 +8,7 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products, addToCart }) => {
-  const [filter, setFilter] = useState<'all' | 'luxury' | 'daily' | 'gifts' | 'favorites'>('all');
+  const [filter, setFilter] = useState<string>('all');
   const [likedProducts, setLikedProducts] = useState<number[]>([]);
 
   const filteredProducts = filter === 'all' 
@@ -23,6 +23,17 @@ const ProductList: React.FC<ProductListProps> = ({ products, addToCart }) => {
     );
   };
 
+  const categories = [
+    { id: 'all', label: 'الكل' },
+    { id: 'luxury', label: 'فاخر' },
+    { id: 'royal', label: 'ملكي' },
+    { id: 'nuts', label: 'مكسرات' },
+    { id: 'bahariz', label: 'بهاريز' },
+    { id: 'egyptian', label: 'مصري' },
+    { id: 'saudi', label: 'سعودي' },
+    { id: 'jordanian', label: 'أردني' },
+  ];
+
   return (
     <section className="py-16 bg-brand-cream">
       <div className="container mx-auto px-4">
@@ -31,34 +42,24 @@ const ProductList: React.FC<ProductListProps> = ({ products, addToCart }) => {
           <div className="w-24 h-1 bg-brand-gold mx-auto mb-6"></div>
           
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <button 
-              onClick={() => setFilter('all')}
-              className={`px-6 py-2 rounded-full border transition-all ${filter === 'all' ? 'bg-brand-brown text-white border-brand-brown' : 'border-brand-brown text-brand-brown hover:bg-brand-brown/10'}`}
-            >
-              الكل
-            </button>
-            <button 
-              onClick={() => setFilter('luxury')}
-              className={`px-6 py-2 rounded-full border transition-all ${filter === 'luxury' ? 'bg-brand-brown text-white border-brand-brown' : 'border-brand-brown text-brand-brown hover:bg-brand-brown/10'}`}
-            >
-              الفاخر
-            </button>
-            <button 
-              onClick={() => setFilter('daily')}
-              className={`px-6 py-2 rounded-full border transition-all ${filter === 'daily' ? 'bg-brand-brown text-white border-brand-brown' : 'border-brand-brown text-brand-brown hover:bg-brand-brown/10'}`}
-            >
-              اليومي
-            </button>
-            <button 
-              onClick={() => setFilter('gifts')}
-              className={`px-6 py-2 rounded-full border transition-all ${filter === 'gifts' ? 'bg-brand-brown text-white border-brand-brown' : 'border-brand-brown text-brand-brown hover:bg-brand-brown/10'}`}
-            >
-              هدايا
-            </button>
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((cat) => (
+              <button 
+                key={cat.id}
+                onClick={() => setFilter(cat.id)}
+                className={`px-5 py-2 rounded-full border transition-all text-sm md:text-base ${
+                  filter === cat.id 
+                    ? 'bg-brand-brown text-white border-brand-brown shadow-md' 
+                    : 'border-brand-brown text-brand-brown hover:bg-brand-brown/10'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+            
             <button 
               onClick={() => setFilter('favorites')}
-              className={`px-6 py-2 rounded-full border transition-all flex items-center gap-2 ${filter === 'favorites' ? 'bg-red-500 text-white border-red-500' : 'border-red-300 text-red-500 hover:bg-red-50'}`}
+              className={`px-5 py-2 rounded-full border transition-all flex items-center gap-2 text-sm md:text-base ${filter === 'favorites' ? 'bg-red-500 text-white border-red-500 shadow-md' : 'border-red-300 text-red-500 hover:bg-red-50'}`}
             >
               <Heart size={16} className={filter === 'favorites' ? 'fill-white' : ''} />
               <span>المفضلة</span>

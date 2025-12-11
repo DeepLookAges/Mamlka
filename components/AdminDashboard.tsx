@@ -21,7 +21,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onAddProduct, onCancel 
     price: 0,
     weight: '',
     imageUrl: '',
-    category: 'daily',
+    category: 'luxury', // Default
   });
 
   const handleLogin = (e: React.FormEvent) => {
@@ -47,6 +47,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onAddProduct, onCancel 
     const newProduct: Product = {
       ...formData,
       id: Date.now(),
+      category: formData.category as any,
     };
     onAddProduct(newProduct);
     alert('تم إضافة المنتج بنجاح!');
@@ -56,7 +57,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onAddProduct, onCancel 
       price: 0,
       weight: '',
       imageUrl: '',
-      category: 'daily',
+      category: 'luxury',
     });
   };
 
@@ -150,9 +151,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onAddProduct, onCancel 
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-gold outline-none"
                 >
-                  <option value="daily">يومي</option>
                   <option value="luxury">فاخر</option>
-                  <option value="gifts">هدايا</option>
+                  <option value="royal">ملكي</option>
+                  <option value="nuts">مكسرات</option>
+                  <option value="bahariz">بهاريز</option>
+                  <option value="egyptian">مصري</option>
+                  <option value="saudi">سعودي</option>
+                  <option value="jordanian">أردني</option>
                 </select>
               </div>
             </div>

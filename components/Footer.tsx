@@ -1,7 +1,12 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { ViewState } from '../types';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  setView: (view: ViewState) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setView }) => {
   return (
     <footer className="bg-brand-brown text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -25,28 +30,45 @@ const Footer: React.FC = () => {
           <div className="text-center">
             <h4 className="text-xl font-bold mb-6 text-brand-gold">روابط سريعة</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">عن الشركة</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">منتجاتنا</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">سياسة الشحن</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">الأسئلة الشائعة</a></li>
+              <li><button onClick={() => setView(ViewState.ABOUT)} className="hover:text-white transition-colors">عن الشركة</button></li>
+              <li><button onClick={() => setView(ViewState.PRODUCTS)} className="hover:text-white transition-colors">منتجاتنا</button></li>
+              <li><button onClick={() => setView(ViewState.HOME)} className="hover:text-white transition-colors">سياسة الشحن</button></li>
+              <li><button onClick={() => setView(ViewState.CONTACT)} className="hover:text-white transition-colors">الأسئلة الشائعة</button></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-6 text-brand-gold">تواصل معنا</h4>
-            <ul className="space-y-4 text-gray-300">
-              <li className="flex items-center justify-center md:justify-end gap-3">
-                <span dir="ltr">+966 50 000 0000</span>
-                <Phone size={18} />
+            <ul className="space-y-4 text-gray-300 flex flex-col items-center md:items-end">
+              {/* WhatsApp Button */}
+              <li className="w-full md:w-auto">
+                <a 
+                  href="https://wa.me/201033056159" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group bg-white/10 hover:bg-green-600 text-white px-6 py-3 rounded-full transition-all duration-300 flex items-center justify-center gap-3 w-full md:w-64"
+                >
+                  <span className="font-bold">واتساب</span>
+                  <MessageCircle size={20} className="group-hover:scale-110 transition-transform" />
+                </a>
               </li>
-              <li className="flex items-center justify-center md:justify-end gap-3">
-                <span>info@kingdomdates.com</span>
-                <Mail size={18} />
+
+              {/* Maktoubi Button */}
+              <li className="w-full md:w-auto">
+                <button 
+                  onClick={() => setView(ViewState.CONTACT)}
+                  className="group bg-white/10 hover:bg-brand-gold text-white px-6 py-3 rounded-full transition-all duration-300 flex items-center justify-center gap-3 w-full md:w-64"
+                >
+                  <span className="font-bold">مكتوبي</span>
+                  <Mail size={20} className="group-hover:scale-110 transition-transform" />
+                </button>
               </li>
-              <li className="flex items-center justify-center md:justify-end gap-3">
-                <span>الرياض، المملكة العربية السعودية</span>
-                <MapPin size={18} />
+
+              {/* Address */}
+              <li className="flex items-center justify-center md:justify-end gap-3 mt-2">
+                <span>الوراق، الجيزة، مصر.</span>
+                <MapPin size={18} className="text-brand-gold" />
               </li>
             </ul>
           </div>

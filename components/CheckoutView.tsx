@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Product, ViewState } from '../types';
 import { ArrowRight, CreditCard, Truck, CheckCircle } from 'lucide-react';
@@ -26,6 +25,21 @@ const CheckoutView: React.FC<CheckoutViewProps> = ({ cart, total, onPlaceOrder, 
     e.preventDefault();
     onPlaceOrder();
   };
+
+  // Calculate Shipping Logic
+  // Default to 0 if empty (to not scare user), 45 for Cairo, 90 for others
+  const getShippingCost = () => {
+    if (!formData.city.trim()) return 0;
+    
+    const city = formData.city.trim().toLowerCase();
+    if (city.includes('القاهرة') || city.includes('cairo')) {
+      return 45;
+    }
+    return 90;
+  };
+
+  const shippingCost = getShippingCost();
+  const finalTotal = total + shippingCost;
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen bg-gray-50">
@@ -80,8 +94,9 @@ const CheckoutView: React.FC<CheckoutViewProps> = ({ cart, total, onPlaceOrder, 
                       value={formData.city}
                       onChange={handleChange}
                       className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-gold outline-none"
-                      placeholder="الرياض، جدة، ..."
+                      placeholder="القاهرة، الجيزة، الإسكندرية..."
                     />
+                    <p className="text-xs text-gray-400 mt-1">سعر الشحن: 45ج للقاهرة، 90ج للمحافظات</p>
                   </div>
                    <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">العنوان التفصيلي</label>
@@ -122,7 +137,7 @@ const CheckoutView: React.FC<CheckoutViewProps> = ({ cart, total, onPlaceOrder, 
                         type="submit"
                         className="w-full md:w-2/3 bg-brand-brown hover:bg-brand-gold text-white font-bold py-3 rounded-lg transition-colors shadow-md"
                     >
-                        تأكيد الطلب ({total} ج.م)
+                        تأكيد الطلب ({finalTotal} ج.م)
                     </button>
                 </div>
               </form>
@@ -152,11 +167,13 @@ const CheckoutView: React.FC<CheckoutViewProps> = ({ cart, total, onPlaceOrder, 
                     </div>
                     <div className="flex justify-between text-gray-600">
                         <span>الشحن</span>
-                        <span className="text-green-600 font-bold">مجاني</span>
+                        <span className={`font-bold ${shippingCost === 0 && !formData.city ? 'text-gray-400' : 'text-brand-brown'}`}>
+                          {shippingCost === 0 && !formData.city ? 'يحدد بعد إدخال المدينة' : `${shippingCost} ج.م`}
+                        </span>
                     </div>
                      <div className="flex justify-between text-2xl font-bold text-brand-brown pt-2">
                         <span>الإجمالي</span>
-                        <span>{total} ج.م</span>
+                        <span>{finalTotal} ج.م</span>
                     </div>
                 </div>
              </div>

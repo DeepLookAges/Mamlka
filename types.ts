@@ -6,7 +6,7 @@ export interface Product {
   price: number;
   weight: string;
   imageUrl: string;
-  category: 'luxury' | 'daily' | 'gifts';
+  category: 'luxury' | 'royal' | 'nuts' | 'bahariz' | 'egyptian' | 'saudi' | 'jordanian' | 'daily' | 'gifts';
 }
 
 export interface ChatMessage {

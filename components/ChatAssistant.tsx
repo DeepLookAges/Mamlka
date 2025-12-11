@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Briefcase } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { sendMessageToGemini } from '../services/geminiService';
 
@@ -9,7 +9,7 @@ const ChatAssistant: React.FC = () => {
     {
       id: 'welcome',
       role: 'model',
-      text: 'أهلاً بك في تمور المملكة! أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم في اختيار التمور المناسبة؟',
+      text: 'أهلاً بك في تمور المملكة! معك مدير المبيعات. كيف يمكنني خدمتك اليوم في اختيار أفخر أنواع التمور؟',
       timestamp: new Date()
     }
   ]);
@@ -73,7 +73,7 @@ const ChatAssistant: React.FC = () => {
         className={`fixed bottom-6 left-6 z-50 bg-brand-gold hover:bg-brand-darkGold text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center gap-2 ${isOpen ? 'hidden' : 'flex'}`}
       >
         <MessageSquare size={24} />
-        <span className="font-bold hidden md:block">المساعد الذكي</span>
+        <span className="font-bold hidden md:block">مدير المبيعات</span>
       </button>
 
       {/* Chat Window */}
@@ -83,11 +83,11 @@ const ChatAssistant: React.FC = () => {
           <div className="bg-brand-brown p-4 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
               <div className="bg-white/20 p-2 rounded-full">
-                <Bot size={20} />
+                <Briefcase size={20} />
               </div>
               <div>
-                <h3 className="font-bold text-sm">مساعد تمور المملكة</h3>
-                <p className="text-[10px] text-gray-200">متصل الآن - مدعوم بالذكاء الاصطناعي</p>
+                <h3 className="font-bold text-sm">مدير مبيعات المملكة</h3>
+                <p className="text-[10px] text-gray-200">متصل الآن</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded-full transition-colors">
@@ -134,7 +134,7 @@ const ChatAssistant: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder="اسأل عن التمور..."
+              placeholder="استفسر عن المنتجات والأسعار..."
               className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold"
               disabled={isLoading}
             />

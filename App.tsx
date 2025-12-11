@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,63 +8,127 @@ import AdminDashboard from './components/AdminDashboard';
 import CartView from './components/CartView';
 import CheckoutView from './components/CheckoutView';
 import SmartChef from './components/SmartChef';
+import TestimonialsSlider from './components/TestimonialsSlider';
 import { ViewState, Product } from './types';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const INITIAL_PRODUCTS: Product[] = [
   {
     id: 1,
-    name: "عجوة المدينة الفاخرة",
-    description: "تمر العجوة المبارك من مزارع المدينة المنورة، يتميز بلونه الأسود وقوامه الطري وفوائده العظيمة.",
-    price: 850,
+    name: "كيلو رطب سكري",
+    description: "رطب سكري فاخر، يتميز بمذاقه الحلو وقوامه الرطب الذي يذوب في الفم. خيار مثالي للقهوة.",
+    price: 195,
     weight: "1 كجم",
-    imageUrl: "https://images.unsplash.com/photo-1628151016024-5d988450f3b3?q=80&w=800&auto=format&fit=crop",
-    category: "luxury"
+    imageUrl: "https://images.unsplash.com/photo-1615486511484-92e172cc416d?q=80&w=800&auto=format&fit=crop",
+    category: "saudi"
   },
   {
     id: 2,
-    name: "سكري القصيم الملكي",
-    description: "تمر السكري المفتل، حلو المذاق، ذهبي اللون، يعتبر فاكهة التمور.",
-    price: 450,
+    name: "كيلو مفتل ملكي",
+    description: "تمر سكري مفتل حبة كبيرة، لون ذهبي ومذاق كراميلي غني. فخر الموائد.",
+    price: 245,
     weight: "1 كجم",
     imageUrl: "https://images.unsplash.com/photo-1596660634621-e380f769024f?q=80&w=800&auto=format&fit=crop",
-    category: "daily"
+    category: "royal"
   },
   {
     id: 3,
-    name: "مجدول الدرجة الأولى",
-    description: "ملك التمور، حبة كبيرة وقوام لحمي ومذاق يشبه الكراميل.",
-    price: 750,
+    name: "كيلو صقعي فاخر",
+    description: "تمر الصقعي المميز بتداخل اللونين الأحمر والأشقر، معتدل الحلاوة وقوام متماسك.",
+    price: 295,
     weight: "1 كجم",
-    imageUrl: "https://images.unsplash.com/photo-1601633512752-19e492c64b6e?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1596541460368-466d713c7784?q=80&w=800&auto=format&fit=crop",
     category: "luxury"
   },
   {
     id: 4,
-    name: "بوكس الإهداء الفاخر",
-    description: "تشكيلة مختارة من أجود أنواع التمور المحشوة بالمكسرات في علبة جلدية فاخرة.",
-    price: 1500,
-    weight: "800 جم",
-    imageUrl: "https://images.unsplash.com/photo-1574676484305-64d1152a5538?q=80&w=800&auto=format&fit=crop",
-    category: "gifts"
+    name: "كيلو خضري",
+    description: "تمر خضري داكن اللون، يتميز بقشرة مجعدة وطعم سكري معتدل، غني بالألياف.",
+    price: 240,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1628151016024-5d988450f3b3?q=80&w=800&auto=format&fit=crop",
+    category: "saudi"
   },
   {
     id: 5,
-    name: "خلاص الإحساء",
-    description: "تمر الخلاص المشهور بلونه الكهرماني وطعمه الغني، رفيق القهوة العربية.",
-    price: 350,
+    name: "كيلو عجوة المدينة",
+    description: "عجوة المدينة المنورة المباركة، حبة سوداء مستديرة، شفاء وبركة ومذاق لا يضاهى.",
+    price: 495,
     weight: "1 كجم",
-    imageUrl: "https://images.unsplash.com/photo-1588167056637-29381e428e28?q=80&w=800&auto=format&fit=crop",
-    category: "daily"
+    imageUrl: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?q=80&w=800&auto=format&fit=crop",
+    category: "royal"
   },
   {
     id: 6,
-    name: "معمول التمر الفاخر",
-    description: "معمول هش محشو بأجود أنواع معجون التمر، يذوب في الفم.",
-    price: 180,
-    weight: "500 جم",
+    name: "كيلو مبروم المدينة",
+    description: "تمر مبروم طويل الشكل، أحمر داكن، قوام مطاطي لذيذ يعتبر من أفخر تمور المدينة.",
+    price: 600,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1585235882207-6c3d9b4c0263?q=80&w=800&auto=format&fit=crop",
+    category: "luxury"
+  },
+  {
+    id: 7,
+    name: "كيلو صفاوي المدينة",
+    description: "تمر صفاوي أسود اللون، شديد السواد، طري الملمس وحلو المذاق، شبيه بالعجوة.",
+    price: 450,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1628151015968-3a4429e9ef04?q=80&w=800&auto=format&fit=crop",
+    category: "saudi"
+  },
+  {
+    id: 8,
+    name: "كيلو مجدول مصري",
+    description: "تمر المجدول (ملك التمور) إنتاج مصري فاخر، حبة كبيرة ولحمية ومذاق رائع.",
+    price: 275,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1601633512752-19e492c64b6e?q=80&w=800&auto=format&fit=crop",
+    category: "egyptian"
+  },
+  {
+    id: 9,
+    name: "كيلو مجدول أردني",
+    description: "المجدول الأردني الأصلي، جامبو، قوام طري جداً ومذاق يشبه التوفي. قمة الفخامة.",
+    price: 575,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1501959915551-4e8d30928317?q=80&w=800&auto=format&fit=crop",
+    category: "jordanian"
+  },
+  {
+    id: 10,
+    name: "تمر بالمكسرات الفاخرة",
+    description: "تمور محشوة بأجود أنواع المكسرات (لوز، فستق، كاجو)، ضيافة راقية ومذاق مقرمش.",
+    price: 550,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1574676484305-64d1152a5538?q=80&w=800&auto=format&fit=crop",
+    category: "nuts"
+  },
+  {
+    id: 11,
+    name: "تمر مغطى بالشيكولاتة",
+    description: "توليفة ساحرة من التمر الفاخر المغطى بالشيكولاتة البلجيكية الغنية.",
+    price: 600,
+    weight: "1 كجم",
     imageUrl: "https://images.unsplash.com/photo-1629251873133-7c91c3374825?q=80&w=800&auto=format&fit=crop",
-    category: "daily"
+    category: "bahariz"
+  },
+  {
+    id: 12,
+    name: "تمر بالعسل والسمسم واللوز",
+    description: "خلطة الطاقة والمناعة، تمر مغمس بالعسل الطبيعي والسمسم ومحشو باللوز.",
+    price: 475,
+    weight: "1 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1632822709287-c83138382c2d?q=80&w=800&auto=format&fit=crop",
+    category: "bahariz"
+  },
+  {
+    id: 13,
+    name: "كرتونة رطب (عرض خاص)",
+    description: "كرتونة توفير عائلي من الرطب السكري الطازج، مذاق رائع وسعر اقتصادي.",
+    price: 525,
+    weight: "3.5 - 4 كجم",
+    imageUrl: "https://images.unsplash.com/photo-1588167056637-29381e428e28?q=80&w=800&auto=format&fit=crop",
+    category: "saudi"
   }
 ];
 
@@ -138,27 +201,30 @@ const App: React.FC = () => {
         return <SmartChef setView={setCurrentView} />;
       case ViewState.ABOUT:
         return (
-          <div className="min-h-screen bg-brand-cream py-16">
-            <div className="container mx-auto px-4">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-                <div className="md:w-1/2">
-                  <img 
-                    src="https://images.unsplash.com/photo-1596660634621-e380f769024f?q=80&w=800&auto=format&fit=crop" 
-                    alt="About Us" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-1/2 p-12 flex flex-col justify-center">
-                  <h2 className="text-3xl font-bold text-brand-brown mb-6">قصة تمور المملكة</h2>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    بدأت رحلتنا من قلب مزارع النخيل في المملكة العربية السعودية، حيث توارثنا حب النخلة جيلاً بعد جيل. تأسست "تمور المملكة" برؤية واضحة: تقديم التمور العربية الفاخرة للعالم بأسلوب عصري يحافظ على الأصالة.
-                  </p>
-                  <p className="text-gray-600 leading-relaxed">
-                    نحن نؤمن بأن التمر ليس مجرد فاكهة، بل هو رمز للكرم والضيافة العربية. لذلك، نسعى دائماً لاختيار أجود المحاصيل وتعبئتها بأعلى معايير الجودة والنظافة.
-                  </p>
+          <div className="min-h-screen bg-brand-cream">
+            <div className="py-16">
+              <div className="container mx-auto px-4">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                  <div className="md:w-1/2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1596660634621-e380f769024f?q=80&w=800&auto=format&fit=crop" 
+                      alt="About Us" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-1/2 p-12 flex flex-col justify-center">
+                    <h2 className="text-3xl font-bold text-brand-brown mb-6">قصة تمور المملكة</h2>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      بدأت رحلتنا من قلب مزارع النخيل في المملكة العربية السعودية، حيث توارثنا حب النخلة جيلاً بعد جيل. تأسست "تمور المملكة" برؤية واضحة: تقديم التمور العربية الفاخرة للعالم بأسلوب عصري يحافظ على الأصالة.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      نحن نؤمن بأن التمر ليس مجرد فاكهة، بل هو رمز للكرم والضيافة العربية. لذلك، نسعى دائماً لاختيار أجود المحاصيل وتعبئتها بأعلى معايير الجودة والنظافة.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+            <TestimonialsSlider />
           </div>
         );
       case ViewState.CONTACT:
@@ -177,7 +243,7 @@ const App: React.FC = () => {
                         </div>
                         <div>
                           <p className="font-bold">مقرنا الرئيسي</p>
-                          <p className="text-sm">طريق الملك فهد، الرياض، المملكة العربية السعودية</p>
+                          <p className="text-sm">الوراق، الجيزة، مصر.</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 text-gray-700">
@@ -185,8 +251,8 @@ const App: React.FC = () => {
                           <Phone size={24} />
                         </div>
                         <div>
-                          <p className="font-bold">الهاتف</p>
-                          <p className="text-sm" dir="ltr">+966 11 000 0000</p>
+                          <p className="font-bold">واتساب</p>
+                          <p className="text-sm" dir="ltr">+20 10 3305 6159</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 text-gray-700">
@@ -194,8 +260,8 @@ const App: React.FC = () => {
                           <Mail size={24} />
                         </div>
                         <div>
-                          <p className="font-bold">البريد الإلكتروني</p>
-                          <p className="text-sm">sales@kingdomdates.com</p>
+                          <p className="font-bold">خدمة العملاء</p>
+                          <p className="text-sm">مكتوبي</p>
                         </div>
                       </div>
                     </div>
@@ -234,7 +300,7 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {renderContent()}
       </main>
-      <Footer />
+      <Footer setView={setCurrentView} />
       <ChatAssistant />
     </div>
   );
