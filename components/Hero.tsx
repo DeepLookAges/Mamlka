@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ setView }) => {
 
         <div className="hidden md:block w-80 h-80 lg:w-96 lg:h-96 relative animate-pulse-slow">
            <img 
-            src="https://e.top4top.io/p_3632anluh1.png" 
+            src="https://i.top4top.io/p_36349nhdv1.png" 
             alt="Kingdom Dates Logo Large" 
             className="w-full h-full object-contain drop-shadow-2xl"
           />

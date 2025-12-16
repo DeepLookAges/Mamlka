@@ -28,9 +28,8 @@ const ProductList: React.FC<ProductListProps> = ({ products, addToCart }) => {
     { id: 'luxury', label: 'فاخر' },
     { id: 'royal', label: 'ملكي' },
     { id: 'nuts', label: 'مكسرات' },
-    { id: 'bahariz', label: 'بهاريز' },
+    { id: 'bahariz', label: 'مصنعات' },
     { id: 'egyptian', label: 'مصري' },
-    { id: 'saudi', label: 'سعودي' },
     { id: 'jordanian', label: 'أردني' },
   ];
 

@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView, cartCount }) => {
         {/* Logo Section */}
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => setView(ViewState.HOME)}>
           <img 
-            src="https://e.top4top.io/p_3632anluh1.png" 
+            src="https://i.top4top.io/p_36349nhdv1.png" 
             alt="Kingdom Dates Logo" 
             className="h-16 w-auto object-contain"
           />

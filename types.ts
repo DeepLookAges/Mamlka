@@ -25,4 +25,6 @@ export enum ViewState {
   CART = 'CART',
   CHECKOUT = 'CHECKOUT',
   SMART_CHEF = 'SMART_CHEF',
+  FAQ = 'FAQ',
+  SHIPPING_POLICY = 'SHIPPING_POLICY',
 }

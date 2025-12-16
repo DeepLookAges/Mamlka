@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Facebook, Phone, Mail, MapPin, MessageCircle, Youtube } from 'lucide-react';
 import { ViewState } from '../types';
 
 interface FooterProps {
@@ -10,8 +10,8 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
   return (
     <footer className="bg-brand-brown text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* 1. Brand Info */}
           <div className="space-y-4 text-center md:text-right">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
               <img 
@@ -26,18 +26,67 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="text-center">
+          {/* 2. Quick Links */}
+          <div className="text-center md:text-right">
             <h4 className="text-xl font-bold mb-6 text-brand-gold">روابط سريعة</h4>
             <ul className="space-y-3 text-gray-300">
               <li><button onClick={() => setView(ViewState.ABOUT)} className="hover:text-white transition-colors">عن الشركة</button></li>
               <li><button onClick={() => setView(ViewState.PRODUCTS)} className="hover:text-white transition-colors">منتجاتنا</button></li>
-              <li><button onClick={() => setView(ViewState.HOME)} className="hover:text-white transition-colors">سياسة الشحن</button></li>
-              <li><button onClick={() => setView(ViewState.CONTACT)} className="hover:text-white transition-colors">الأسئلة الشائعة</button></li>
+              <li><button onClick={() => setView(ViewState.FAQ)} className="hover:text-white transition-colors">الأسئلة الشائعة</button></li>
+              <li><button onClick={() => setView(ViewState.SHIPPING_POLICY)} className="hover:text-white transition-colors">سياسة الشحن</button></li>
+              <li><button onClick={() => setView(ViewState.CONTACT)} className="hover:text-white transition-colors">تواصل معنا</button></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* 3. Follow Us */}
+          <div className="text-center md:text-right">
+             <h4 className="text-xl font-bold mb-6 text-brand-gold">تابعنا</h4>
+             <div className="flex flex-col gap-4 items-center md:items-start">
+                {/* Facebook */}
+                <a 
+                  href="https://www.facebook.com/almamlakahDates" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+                >
+                  <div className="bg-white/10 p-2 rounded-full group-hover:bg-[#1877F2] transition-colors">
+                    <Facebook size={20} />
+                  </div>
+                  <span>فيسبوك</span>
+                </a>
+
+                {/* YouTube */}
+                <a 
+                  href="https://www.youtube.com/@ElMamlakaTV" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+                >
+                  <div className="bg-white/10 p-2 rounded-full group-hover:bg-[#FF0000] transition-colors">
+                    <Youtube size={20} />
+                  </div>
+                  <span>يوتيوب</span>
+                </a>
+
+                {/* TikTok */}
+                <a 
+                  href="https://www.tiktok.com/@elmamlaka.datse" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+                >
+                  <div className="bg-white/10 p-2 rounded-full group-hover:bg-black transition-colors">
+                     {/* TikTok Icon SVG */}
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                     </svg>
+                  </div>
+                  <span>تيك توك</span>
+                </a>
+             </div>
+          </div>
+
+          {/* 4. Contact */}
           <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-6 text-brand-gold">تواصل معنا</h4>
             <ul className="space-y-4 text-gray-300 flex flex-col items-center md:items-end">
@@ -74,7 +123,8 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-right">
             <p className="text-gray-400 text-sm">© 2025 تمور المملكة. جميع الحقوق محفوظة.</p>
             <span className="hidden md:block text-gray-600">|</span>
@@ -89,17 +139,6 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
                 HAMZA Hilal
               </a>
             </p>
-          </div>
-          <div className="flex gap-4">
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-brand-gold transition-colors">
-              <Instagram size={20} />
-            </a>
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-brand-gold transition-colors">
-              <Twitter size={20} />
-            </a>
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-brand-gold transition-colors">
-              <Facebook size={20} />
-            </a>
           </div>
         </div>
       </div>

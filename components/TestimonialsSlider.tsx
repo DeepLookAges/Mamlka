@@ -4,45 +4,45 @@ import { ChevronLeft, ChevronRight, Quote, MapPin } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "محمد أحمد",
-    location: "القاهرة",
-    text: "تعامل راقي جداً وتغليف ممتاز. التمر وصل طازج وكأنه لسه مجموع، فعلاً طعم الأصالة.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
+    name: "وائل زغاليل",
+    location: "العبور",
+    text: "جودة التمور ممتازة وتغليف فاخر، التوصيل للعبور كان سريع جداً والتعامل راقي. أنصح الجميع بالتجربة.",
+    image: "https://e.top4top.io/p_3634ygljf1.png"
   },
   {
     id: 2,
-    name: "سارة محمود",
-    location: "الإسكندرية",
-    text: "جربت المجدول الأردني وكان حبة كبيرة وطعم خيال. شكراً على سرعة التوصيل للإسكندرية.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop"
+    name: "أميمة عبد العزيز",
+    location: "جسر السويس",
+    text: "طلبت لأولادي وعجبتهم جداً، التمر طازج ونظيف. شكراً تمور المملكة على المصداقية.",
+    image: "https://h.top4top.io/p_3634ivj481.png"
   },
   {
     id: 3,
-    name: "عمر خالد",
-    location: "الجيزة",
-    text: "أفضل متجر تمور تعاملت معه في مصر، الأسعار مقابل الجودة ممتازة جداً. أنصح بالسكري المفتل.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+    name: "يسري عمارة",
+    location: "مصر الجديدة",
+    text: "منتجات تشرف بجد في العزومات. المجدول عندهم حبة كبيرة وطعمه رائع، والتغليف هدية لوحده.",
+    image: "https://a.top4top.io/p_36343clrt1.png"
   },
   {
     id: 4,
-    name: "هدى عبد الرحمن",
-    location: "المنصورة",
-    text: "عجوة المدينة عندهم أصلية ونظيفة جداً، طلبتها للوالدة وعجبتها جداً. ربنا يبارك لكم.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+    name: "غادة عبد العظيم",
+    location: "الف مسكن",
+    text: "تعاملت معاهم أكثر من مرة، نفس الجودة الممتازة كل مرة. المكسرات طازجة جداً ومقرمشة.",
+    image: "https://i.top4top.io/p_3634r9x3d1.png"
   },
   {
     id: 5,
-    name: "يوسف علي",
-    location: "أسوان",
-    text: "طلبت بوكس الهدايا بالمكسرات، كان واجهة مشرفة جداً قدام ضيوفي. التغليف لوحده حكاية.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    name: "عاطف المليجي",
+    location: "المقطم",
+    text: "أفضل مكان تشتري منه تمر وأنت مغمض. السكري المفتل عندهم لا يعلى عليه.",
+    image: "https://b.top4top.io/p_3634vb3wb1.png"
   },
   {
     id: 6,
-    name: "منى السيد",
-    location: "طنطا",
-    text: "خدمة العملاء محترمة جداً والشحن كان سريع رغم المسافة. التمر وصل بحالته الممتازة.",
-    image: "https://images.unsplash.com/photo-1554151228-14d9def656ec?q=80&w=200&auto=format&fit=crop"
+    name: "فاتن محمد",
+    location: "المهندسين",
+    text: "المعمول والتمر بالمكسرات تحفة فنية. خدمة العملاء محترمة جداً وسرعة في التوصيل.",
+    image: "https://h.top4top.io/p_36347m6t11.png"
   }
 ];
 
